@@ -1,0 +1,169 @@
+{
+    "id": 2335508,
+    "type": 2,
+    "seed": {
+        "id": "m722ueoi0gzatm5b",
+        "overworld": "BURIED_TREASURE",
+        "nether": "BRIDGE",
+        "endTowers": [
+            79,
+            76,
+            82,
+            94
+        ],
+        "variations": [
+            "biome:structure:deep_ocean",
+            "biome:structure:deep_ocean",
+            "bastion:triple:1",
+            "bastion:single:1",
+            "biome:bastion:crimson_forest",
+            "biome:fortress:nether_wastes",
+            "end_tower:caged:front",
+            "end_tower:caged:back"
+        ]
+    },
+    "category": "ANY",
+    "gameMode": "default",
+    "players": [
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "nickname": "LazarBim",
+            "roleType": 0,
+            "eloRate": 1600,
+            "eloRank": 136,
+            "country": "us"
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "nickname": "Blankboi_",
+            "roleType": 0,
+            "eloRate": 1403,
+            "eloRank": 370,
+            "country": "cn"
+        }
+    ],
+    "spectators": [],
+    "result": {
+        "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+        "time": 224897
+    },
+    "forfeited": true,
+    "decayed": false,
+    "rank": {
+        "season": null,
+        "allTime": null
+    },
+    "vod": [],
+    "changes": [
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "change": 19,
+            "eloRate": 1450
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "change": -19,
+            "eloRate": 1434
+        }
+    ],
+    "completions": [],
+    "timelines": [
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 221496,
+            "type": "nether.loot_bastion"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 161209,
+            "type": "nether.find_bastion"
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "time": 151132,
+            "type": "projectelo.timeline.death"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 122128,
+            "type": "nether.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 122011,
+            "type": "story.enter_the_nether"
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "time": 120952,
+            "type": "nether.root"
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "time": 120696,
+            "type": "story.enter_the_nether"
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "time": 117396,
+            "type": "story.mine_stone"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 110656,
+            "type": "story.lava_bucket"
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "time": 110243,
+            "type": "story.lava_bucket"
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "time": 62246,
+            "type": "story.iron_tools"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 54710,
+            "type": "story.iron_tools"
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "time": 52109,
+            "type": "story.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 44061,
+            "type": "story.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 41115,
+            "type": "story.mine_stone"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 39111,
+            "type": "husbandry.root"
+        },
+        {
+            "uuid": "eb79169d77bf4850947526cdd77d4adf",
+            "time": 27049,
+            "type": "story.smelt_iron"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 18171,
+            "type": "story.smelt_iron"
+        }
+    ],
+    "beginner": false,
+    "season": 8,
+    "date": 1749953330,
+    "seedType": "BURIED_TREASURE",
+    "bastionType": "BRIDGE",
+    "tag": null,
+    "replayExist": true
+}

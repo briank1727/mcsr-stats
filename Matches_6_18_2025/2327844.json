@@ -1,0 +1,298 @@
+{
+    "id": 2327844,
+    "type": 2,
+    "seed": {
+        "id": "m722wek0ajhko9tb",
+        "overworld": "RUINED_PORTAL",
+        "nether": "TREASURE",
+        "endTowers": [
+            82,
+            76,
+            91,
+            88
+        ],
+        "variations": [
+            "type:structure:lava",
+            "biome:structure:plains",
+            "type:structure:lava",
+            "biome:structure:plains",
+            "biome:bastion:crimson_forest",
+            "biome:fortress:crimson_forest",
+            "end_tower:caged:front"
+        ]
+    },
+    "category": "ANY",
+    "gameMode": "default",
+    "players": [
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "nickname": "LazarBim",
+            "roleType": 0,
+            "eloRate": 1600,
+            "eloRank": 136,
+            "country": "us"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "nickname": "voyager63",
+            "roleType": 0,
+            "eloRate": 1466,
+            "eloRank": 269,
+            "country": null
+        }
+    ],
+    "spectators": [],
+    "result": {
+        "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+        "time": 615573
+    },
+    "forfeited": false,
+    "decayed": false,
+    "rank": {
+        "season": null,
+        "allTime": null
+    },
+    "vod": [],
+    "changes": [
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "change": 21,
+            "eloRate": 1435
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "change": -21,
+            "eloRate": 1449
+        }
+    ],
+    "completions": [
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 615573
+        }
+    ],
+    "timelines": [
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 605494,
+            "type": "projectelo.timeline.dragon_death"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 594073,
+            "type": "end.kill_dragon"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 587497,
+            "type": "end.root"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 587400,
+            "type": "story.enter_the_end"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 583908,
+            "type": "adventure.shoot_arrow"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 583656,
+            "type": "adventure.ol_betsy"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 561246,
+            "type": "story.enter_the_end"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 561128,
+            "type": "end.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 552448,
+            "type": "projectelo.timeline.death_spawnpoint"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 539935,
+            "type": "story.follow_ender_eye"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 535601,
+            "type": "story.follow_ender_eye"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 523734,
+            "type": "story.mine_stone"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 447903,
+            "type": "projectelo.timeline.blind_travel"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 394507,
+            "type": "nether.obtain_blaze_rod"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 393189,
+            "type": "adventure.kill_a_mob"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 384696,
+            "type": "projectelo.timeline.blind_travel"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 384462,
+            "type": "nether.find_fortress"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 324263,
+            "type": "story.obtain_armor"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 303633,
+            "type": "nether.obtain_blaze_rod"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 287834,
+            "type": "nether.find_fortress"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 281636,
+            "type": "husbandry.root"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 257636,
+            "type": "adventure.kill_a_mob"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 160280,
+            "type": "story.iron_tools"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 156379,
+            "type": "story.iron_tools"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 153479,
+            "type": "story.smelt_iron"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 143028,
+            "type": "story.smelt_iron"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 137928,
+            "type": "nether.obtain_crying_obsidian"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 135898,
+            "type": "nether.loot_bastion"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 134976,
+            "type": "nether.obtain_crying_obsidian"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 131832,
+            "type": "nether.find_bastion"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 130757,
+            "type": "nether.loot_bastion"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 127482,
+            "type": "nether.find_bastion"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 99336,
+            "type": "husbandry.root"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 93450,
+            "type": "story.enter_the_nether"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 93356,
+            "type": "nether.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 91636,
+            "type": "story.enter_the_nether"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 91518,
+            "type": "nether.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 69835,
+            "type": "story.root"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 58918,
+            "type": "adventure.root"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 43581,
+            "type": "story.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 36273,
+            "type": "adventure.root"
+        },
+        {
+            "uuid": "35b6ea852fb44be491881b481273a73f",
+            "time": 14681,
+            "type": "story.form_obsidian"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 14091,
+            "type": "story.form_obsidian"
+        }
+    ],
+    "beginner": false,
+    "season": 8,
+    "date": 1749863007,
+    "seedType": "RUINED_PORTAL",
+    "bastionType": "TREASURE",
+    "tag": null,
+    "replayExist": true
+}

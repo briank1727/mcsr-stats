@@ -1,0 +1,301 @@
+{
+    "id": 2348115,
+    "type": 2,
+    "seed": {
+        "id": "m723d02ah7njl3vg",
+        "overworld": "SHIPWRECK",
+        "nether": "HOUSING",
+        "endTowers": [
+            82,
+            88,
+            85,
+            91
+        ],
+        "variations": [
+            "biome:structure:deep_ocean",
+            "type:structure:sideways",
+            "biome:structure:deep_ocean",
+            "type:structure:sideways",
+            "bastion:triple:1",
+            "bastion:single:1",
+            "biome:bastion:nether_wastes",
+            "biome:fortress:crimson_forest",
+            "end_spawn:buried:57",
+            "end_tower:caged:front"
+        ]
+    },
+    "category": "ANY",
+    "gameMode": "default",
+    "players": [
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "nickname": "LazarBim",
+            "roleType": 0,
+            "eloRate": 1565,
+            "eloRank": 155,
+            "country": "us"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "nickname": "Starchomper",
+            "roleType": 1,
+            "eloRate": 1454,
+            "eloRank": 286,
+            "country": "gb"
+        }
+    ],
+    "spectators": [],
+    "result": {
+        "uuid": null,
+        "time": 775360
+    },
+    "forfeited": true,
+    "decayed": false,
+    "rank": {
+        "season": null,
+        "allTime": null
+    },
+    "vod": [],
+    "changes": [
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "change": 1,
+            "eloRate": 1436
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "change": -1,
+            "eloRate": 1507
+        }
+    ],
+    "completions": [],
+    "timelines": [
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 773108,
+            "type": "end.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 772989,
+            "type": "story.enter_the_end"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 765170,
+            "type": "projectelo.timeline.death_spawnpoint"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 760545,
+            "type": "adventure.sleep_in_bed"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 706278,
+            "type": "projectelo.timeline.death"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 676108,
+            "type": "story.enter_the_end"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 676096,
+            "type": "end.root"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 614700,
+            "type": "story.follow_ender_eye"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 574132,
+            "type": "story.follow_ender_eye"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 511530,
+            "type": "projectelo.timeline.blind_travel"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 469325,
+            "type": "projectelo.timeline.blind_travel"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 418772,
+            "type": "nether.obtain_blaze_rod"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 412883,
+            "type": "adventure.kill_a_mob"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 412871,
+            "type": "adventure.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 387148,
+            "type": "nether.obtain_blaze_rod"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 383721,
+            "type": "nether.find_fortress"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 348703,
+            "type": "adventure.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 348584,
+            "type": "adventure.kill_a_mob"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 333902,
+            "type": "nether.find_fortress"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 284122,
+            "type": "nether.obtain_crying_obsidian"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 246456,
+            "type": "nether.obtain_crying_obsidian"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 244873,
+            "type": "story.form_obsidian"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 237656,
+            "type": "husbandry.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 209460,
+            "type": "story.form_obsidian"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 199819,
+            "type": "nether.distract_piglin"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 198958,
+            "type": "nether.loot_bastion"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 195926,
+            "type": "nether.find_bastion"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 168111,
+            "type": "nether.loot_bastion"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 167411,
+            "type": "nether.find_bastion"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 144387,
+            "type": "nether.root"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 144376,
+            "type": "story.enter_the_nether"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 142369,
+            "type": "story.mine_stone"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 131718,
+            "type": "story.lava_bucket"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 115372,
+            "type": "story.enter_the_nether"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 115254,
+            "type": "nether.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 112011,
+            "type": "story.mine_stone"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 105217,
+            "type": "story.iron_tools"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 103861,
+            "type": "story.lava_bucket"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 85470,
+            "type": "husbandry.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 77950,
+            "type": "story.iron_tools"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 73862,
+            "type": "story.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 69056,
+            "type": "story.root"
+        },
+        {
+            "uuid": "1a71528dc0274145a5d111f57ab6c270",
+            "time": 45021,
+            "type": "story.smelt_iron"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 30820,
+            "type": "story.smelt_iron"
+        }
+    ],
+    "beginner": false,
+    "season": 8,
+    "date": 1750120017,
+    "seedType": "SHIPWRECK",
+    "bastionType": "HOUSING",
+    "tag": null,
+    "replayExist": true
+}

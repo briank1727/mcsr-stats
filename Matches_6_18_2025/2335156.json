@@ -1,0 +1,163 @@
+{
+    "id": 2335156,
+    "type": 2,
+    "seed": {
+        "id": "m72348fw5gzd7xid",
+        "overworld": "VILLAGE",
+        "nether": "BRIDGE",
+        "endTowers": [
+            97,
+            82,
+            94,
+            88
+        ],
+        "variations": [
+            "biome:structure:plains",
+            "biome:structure:plains",
+            "bastion:triple:1",
+            "bastion:single:1",
+            "biome:bastion:nether_wastes",
+            "biome:fortress:nether_wastes",
+            "end_tower:caged:front_center"
+        ]
+    },
+    "category": "ANY",
+    "gameMode": "default",
+    "players": [
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "nickname": "Luisyun",
+            "roleType": 0,
+            "eloRate": 1710,
+            "eloRank": 72,
+            "country": "mx"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "nickname": "LazarBim",
+            "roleType": 0,
+            "eloRate": 1600,
+            "eloRank": 136,
+            "country": "us"
+        }
+    ],
+    "spectators": [],
+    "result": {
+        "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+        "time": 177197
+    },
+    "forfeited": true,
+    "decayed": false,
+    "rank": {
+        "season": null,
+        "allTime": null
+    },
+    "vod": [],
+    "changes": [
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "change": 17,
+            "eloRate": 1560
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "change": -17,
+            "eloRate": 1471
+        }
+    ],
+    "completions": [],
+    "timelines": [
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "time": 163960,
+            "type": "nether.find_bastion"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 141277,
+            "type": "projectelo.timeline.death"
+        },
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "time": 114124,
+            "type": "story.enter_the_nether"
+        },
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "time": 113902,
+            "type": "nether.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 100376,
+            "type": "story.lava_bucket"
+        },
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "time": 94506,
+            "type": "story.lava_bucket"
+        },
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "time": 28656,
+            "type": "story.mine_stone"
+        },
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "time": 25700,
+            "type": "story.root"
+        },
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "time": 24224,
+            "type": "story.smelt_iron"
+        },
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "time": 24224,
+            "type": "story.form_obsidian"
+        },
+        {
+            "uuid": "1602c609165843e8af3a62c0f8cedb6e",
+            "time": 24005,
+            "type": "story.iron_tools"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 22035,
+            "type": "story.mine_stone"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 20523,
+            "type": "story.root"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 18273,
+            "type": "story.form_obsidian"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 18273,
+            "type": "story.smelt_iron"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 18273,
+            "type": "story.obtain_armor"
+        },
+        {
+            "uuid": "34c876e4a23a4fe5a1fbf76a41db0e78",
+            "time": 18154,
+            "type": "story.iron_tools"
+        }
+    ],
+    "beginner": false,
+    "season": 8,
+    "date": 1749947819,
+    "seedType": "VILLAGE",
+    "bastionType": "BRIDGE",
+    "tag": null,
+    "replayExist": true
+}
