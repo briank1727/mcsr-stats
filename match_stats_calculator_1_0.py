@@ -7,7 +7,7 @@ month = now.month
 day = now.day
 year = now.year
 
-path = f"Matches_{month}_{day}_{year}"
+path = f"matches/{month}_{day}_{year}"
 files = os.listdir(path)
 UUID = "34c876e4a23a4fe5a1fbf76a41db0e78"
 matches = []

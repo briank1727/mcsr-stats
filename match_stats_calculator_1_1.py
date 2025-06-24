@@ -2,13 +2,15 @@ import os
 import json
 from datetime import datetime
 import numpy as np
+import tkinter as tk
+from tkinter import ttk, messagebox
 
 now = datetime.now()
 month = now.month
 day = now.day
 year = now.year
 
-path = f"Matches_{month}_{day}_{year}"
+path = f"matches/{month}_{day}_{year}"
 files = os.listdir(path)
 UUID = "34c876e4a23a4fe5a1fbf76a41db0e78"
 json_matches = []
@@ -45,6 +47,8 @@ class Match:
             self.result = "forfeit"
         else:
             self.result = "completion"
+
+        self.final_time = json_match["result"]["time"]
         self.winner = json_match["result"]["uuid"]
         self.user_timeline = [Timestamp(0, "start")]
         self.opponent_timeline = [Timestamp(0, "start")]
@@ -80,10 +84,10 @@ class Match:
         return self.split_time(start_split, end_split, self.opponent_timeline)
 
     def split_time(self, start_split, end_split, timeline):
-        start_time = 0
+        start_time = -1
         end_time = -1
         for timestamp in timeline:
-            if timestamp.type == start_split:
+            if timestamp.type == start_split and start_time == -1:
                 start_time = timestamp.time
             elif timestamp.type == end_split:
                 end_time = timestamp.time
@@ -94,22 +98,18 @@ class Match:
 
     def died_or_reset(self, start_split, end_split, timeline):
         start_time = -1
-        end_time = -1
         death_time = -1
         for timestamp in timeline:
-            if timestamp.type == start_split:
+            if timestamp.type == start_split and start_time == -1:
                 start_time = timestamp.time
             elif (
                 timestamp.type == "projectelo.timeline.death"
                 or timestamp.type == "projectelo.timeline.reset"
-            ):
+            ) and start_time != -1:
                 death_time = timestamp.time
             elif timestamp.type == end_split:
-                end_time = timestamp.time
-                break
-        if start_time == -1 or end_time == -1:
-            return False
-        if death_time != -1 and start_time < death_time < end_time:
+                return start_time != -1 and death_time != -1 and start_time < death_time
+        if start_time != -1 and death_time != -1 and start_time < death_time:
             return True
         return False
 
@@ -152,31 +152,31 @@ MAJOR_SPLITS = [
         "name": "Shipwreck",
         "start_split": "start",
         "end_split": "story.enter_the_nether",
-        "overworldFilter": "SHIPWRECK",
+        "overworld_filter": "SHIPWRECK",
     },
     {
         "name": "Buried Treasure",
         "start_split": "start",
         "end_split": "story.enter_the_nether",
-        "overworldFilter": "BURIED_TREASURE",
+        "overworld_filter": "BURIED_TREASURE",
     },
     {
         "name": "Village",
         "start_split": "start",
         "end_split": "story.enter_the_nether",
-        "overworldFilter": "VILLAGE",
+        "overworld_filter": "VILLAGE",
     },
     {
         "name": "Ruined Portal",
         "start_split": "start",
         "end_split": "story.enter_the_nether",
-        "overworldFilter": "RUINED_PORTAL",
+        "overworld_filter": "RUINED_PORTAL",
     },
     {
         "name": "Desert Temple",
         "start_split": "start",
         "end_split": "story.enter_the_nether",
-        "overworldFilter": "DESERT_TEMPLE",
+        "overworld_filter": "DESERT_TEMPLE",
     },
     {
         "name": "Nether",
@@ -192,25 +192,25 @@ MAJOR_SPLITS = [
         "name": "Housing",
         "start_split": "nether.find_bastion",
         "end_split": "nether.find_fortress",
-        "bastionFilter": "HOUSING",
+        "bastion_filter": "HOUSING",
     },
     {
         "name": "Bridge",
         "start_split": "nether.find_bastion",
         "end_split": "nether.find_fortress",
-        "bastionFilter": "BRIDGE",
+        "bastion_filter": "BRIDGE",
     },
     {
         "name": "Stables",
         "start_split": "nether.find_bastion",
         "end_split": "nether.find_fortress",
-        "bastionFilter": "STABLES",
+        "bastion_filter": "STABLES",
     },
     {
         "name": "Treasure",
         "start_split": "nether.find_bastion",
         "end_split": "nether.find_fortress",
-        "bastionFilter": "TREASURE",
+        "bastion_filter": "TREASURE",
     },
     {
         "name": "Fortress",
@@ -238,143 +238,264 @@ MAJOR_SPLITS = [
         "end_split": "end",
     },
 ]
-print()
-for SPLIT in MAJOR_SPLITS[-1:]:
-    name = SPLIT["name"]
-    start_split = SPLIT["start_split"]
-    end_split = SPLIT["end_split"]
 
-    print(f"{name} Stats:")
-    print()
 
-    num_starts = len(
-        [match for match in matches if match.user_started_split(start_split)]
-    )
+class StatsUI(tk.Tk):
+    def __init__(self, matches, major_splits):
+        super().__init__()
+        self.title("MCSR Match Stats")
+        self.geometry("1000x800")
+        self.matches = matches
+        self.major_splits = major_splits
 
-    print(f"Number of {name} Starts: {num_starts}")
+        self.split_names = [split["name"] for split in self.major_splits]
+        self.selected_split = tk.StringVar(value=self.split_names[0])
 
-    num_user_forfeits = len(
-        [
-            match
-            for match in matches
-            if match.user_started_split(start_split)
-            and match.user_split_time(start_split, end_split) == -1
-            and match.result == "forfeit"
-            and match.winner != UUID
-        ]
-    )
+        self.create_widgets()
+        self.update_stats()
 
-    print(
-        f"Number of User Forfeits: {num_user_forfeits} ({(num_user_forfeits / num_starts * 100):.1f}% Forfeit Rate)"
-    )
+    def create_widgets(self):
+        top_frame = ttk.Frame(self)
+        top_frame.pack(side=tk.TOP, fill=tk.X, padx=10, pady=10)
 
-    num_opponent_wins = len(
-        [
-            match
-            for match in matches
-            if match.user_started_split(start_split)
-            and match.user_split_time(start_split, end_split) == -1
-            and match.result == "completion"
-            and match.winner != UUID
-        ]
-    )
+        ttk.Label(top_frame, text="Select Split:").pack(side=tk.LEFT)
+        self.split_combo = ttk.Combobox(
+            top_frame,
+            values=self.split_names,
+            textvariable=self.selected_split,
+            state="readonly",
+        )
+        self.split_combo.pack(side=tk.LEFT, padx=5)
+        self.split_combo.bind("<<ComboboxSelected>>", lambda e: self.update_stats())
 
-    print(f"Number of Opponent Wins: {num_opponent_wins}")
+        self.stats_text = tk.Text(self, wrap=tk.WORD, font=("Consolas", 14))
+        self.stats_text.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+        self.stats_text.config(state=tk.DISABLED)
 
-    num_opponent_forfeits = len(
-        [
-            match
-            for match in matches
-            if match.user_started_split(start_split)
-            and match.user_split_time(start_split, end_split) == -1
-            and match.result == "forfeit"
-            and match.winner == UUID
-        ]
-    )
+    def update_stats(self):
+        split_name = self.selected_split.get()
+        split = next(s for s in self.major_splits if s["name"] == split_name)
+        start_split = split["start_split"]
+        end_split = split["end_split"]
 
-    print(f"Number of Opponent Forfeits: {num_opponent_forfeits}")
+        filtered_matches = self.matches
+        if "overworld_filter" in split:
+            filtered_matches = [
+                match
+                for match in filtered_matches
+                if match.overworld_type == split["overworld_filter"]
+            ]
+        if "bastion_filter" in split:
+            filtered_matches = [
+                match
+                for match in filtered_matches
+                if match.bastion_type == split["bastion_filter"]
+            ]
 
-    num_draws = len(
-        [
-            match
-            for match in matches
-            if match.user_started_split(start_split)
-            and match.user_split_time(start_split, end_split) == -1
-            and match.result == "draw"
-        ]
-    )
-    print(f"Number of Draws: {num_draws}")
+        stats_lines = []
+        stats_lines.append(f"{split_name} Stats:\n")
 
-    print()
+        num_starts = len(
+            [m for m in filtered_matches if m.user_started_split(start_split)]
+        )
+        stats_lines.append(f"Number of {split_name} Starts: {num_starts}")
 
-    completed_matches = len(
-        [
-            match
-            for match in matches
-            if match.user_split_time(start_split, end_split) != -1
-        ]
-    )
-    if completed_matches > 0:
-        average_completion_time = np.mean(
+        num_user_forfeits = len(
             [
-                match.user_split_time(start_split, end_split)
-                for match in matches
-                if match.user_split_time(start_split, end_split) != -1
+                m
+                for m in filtered_matches
+                if m.user_started_split(start_split)
+                and m.user_split_time(start_split, end_split) == -1
+                and m.result == "forfeit"
+                and m.winner != UUID
             ]
         )
-
-        print(
-            f"Average {name} Completion Time: ({format_time(average_completion_time)})"
+        stats_lines.append(
+            f"Number of User Forfeits: {num_user_forfeits} ({(num_user_forfeits / num_starts * 100) if num_starts else 0:.1f}% Forfeit Rate)"
         )
 
-        print(f"Completed: {completed_matches}")
-
-        print()
-
-    completed_matches_no_deaths = len(
-        [
-            match
-            for match in matches
-            if match.user_split_time(start_split, end_split) != -1
-            and not match.died_or_reset(start_split, end_split, match.user_timeline)
-        ]
-    )
-
-    if completed_matches_no_deaths > 0:
-        average_completion_time_no_deaths = np.mean(
+        num_deaths = len(
             [
-                match.user_split_time(start_split, end_split)
-                for match in matches
-                if match.user_split_time(start_split, end_split) != -1
-                and not match.died_or_reset(start_split, end_split, match.user_timeline)
+                m
+                for m in filtered_matches
+                if m.user_started_split(start_split)
+                and m.died_or_reset(start_split, end_split, m.user_timeline)
             ]
         )
-        print(
-            f"Average {name} Completion Time (No Deaths): ({format_time(average_completion_time_no_deaths)})"
+        stats_lines.append(
+            f"Number of Deaths/Resets: {num_deaths} ({(num_deaths / num_starts * 100) if num_starts else 0:.1f}% Death Rate)"
         )
-        print(f"Completed {name} (No Deaths): {completed_matches_no_deaths}")
-        print()
+        stats_lines.append("\n")
 
-    completed_matches_deaths = len(
-        [
-            match
-            for match in matches
-            if match.user_split_time(start_split, end_split) != -1
-            and match.died_or_reset(start_split, end_split, match.user_timeline)
-        ]
-    )
-
-    if completed_matches_deaths > 0:
-        average_completion_time_deaths = np.mean(
+        num_opponent_wins = len(
             [
-                match.user_split_time(start_split, end_split)
-                for match in matches
-                if match.user_split_time(start_split, end_split) != -1
-                and match.died_or_reset(start_split, end_split, match.user_timeline)
+                m
+                for m in filtered_matches
+                if m.user_started_split(start_split)
+                and m.user_split_time(start_split, end_split) == -1
+                and m.result == "completion"
+                and m.winner != UUID
             ]
         )
-        print(
-            f"Average {name} Completion Time (With Deaths): ({format_time(average_completion_time_deaths)})"
+        stats_lines.append(f"Number of Opponent Wins: {num_opponent_wins}")
+
+        num_opponent_forfeits = len(
+            [
+                m
+                for m in filtered_matches
+                if m.user_started_split(start_split)
+                and m.user_split_time(start_split, end_split) == -1
+                and m.result == "forfeit"
+                and m.winner == UUID
+            ]
         )
-        print(f"Completed {name} (With Deaths): {completed_matches_deaths}")
-        print()
+        stats_lines.append(f"Number of Opponent Forfeits: {num_opponent_forfeits}")
+
+        num_draws = len(
+            [
+                m
+                for m in filtered_matches
+                if m.user_started_split(start_split)
+                and m.user_split_time(start_split, end_split) == -1
+                and m.result == "draw"
+            ]
+        )
+        stats_lines.append(f"Number of Draws: {num_draws}")
+        stats_lines.append("\n")
+
+        fastest_time = min(
+            [
+                m.user_split_time(start_split, end_split)
+                for m in filtered_matches
+                if m.user_split_time(start_split, end_split) != -1
+            ],
+            default=None,
+        )
+        if fastest_time is not None:
+            stats_lines.append(
+                f"Fastest {split_name} Completion Time: {format_time(fastest_time)}"
+            )
+        stats_lines.append("\n")
+
+        completed = len(
+            [
+                m
+                for m in filtered_matches
+                if m.user_split_time(start_split, end_split) != -1
+            ]
+        )
+        if completed > 0:
+            average_completion_time = np.mean(
+                [
+                    m.user_split_time(start_split, end_split)
+                    for m in filtered_matches
+                    if m.user_split_time(start_split, end_split) != -1
+                ]
+            )
+            stats_lines.append(
+                f"Average {split_name} Completion Time: ({format_time(average_completion_time)})"
+            )
+            stats_lines.append(f"Completed: {completed}")
+            stats_lines.append("\n")
+
+        completed_no_deaths = len(
+            [
+                m
+                for m in filtered_matches
+                if m.user_split_time(start_split, end_split) != -1
+                and not m.died_or_reset(start_split, end_split, m.user_timeline)
+            ]
+        )
+        if completed_no_deaths > 0 and completed_no_deaths != completed:
+            average_completion_time_no_deaths = np.mean(
+                [
+                    m.user_split_time(start_split, end_split)
+                    for m in filtered_matches
+                    if m.user_split_time(start_split, end_split) != -1
+                    and not m.died_or_reset(start_split, end_split, m.user_timeline)
+                ]
+            )
+            stats_lines.append(
+                f"Average Completion Time (No Deaths): ({format_time(average_completion_time_no_deaths)})"
+            )
+            stats_lines.append(f"Completed (No Deaths): {completed_no_deaths}")
+            stats_lines.append("\n")
+
+        completed_deaths = len(
+            [
+                m
+                for m in filtered_matches
+                if m.user_split_time(start_split, end_split) != -1
+                and m.died_or_reset(start_split, end_split, m.user_timeline)
+            ]
+        )
+        if completed_deaths > 0 and completed_deaths != completed:
+            average_completion_time_deaths = np.mean(
+                [
+                    m.user_split_time(start_split, end_split)
+                    for m in filtered_matches
+                    if m.user_split_time(start_split, end_split) != -1
+                    and m.died_or_reset(start_split, end_split, m.user_timeline)
+                ]
+            )
+            stats_lines.append(
+                f"Average {split_name} Completion Time (With Deaths): ({format_time(average_completion_time_deaths)})"
+            )
+            stats_lines.append(
+                f"Completed {split_name} (With Deaths): {completed_deaths}"
+            )
+            stats_lines.append("\n")
+
+        completed_both = len(
+            [
+                m
+                for m in filtered_matches
+                if m.user_split_time(start_split, end_split) != -1
+                and m.opponent_split_time(start_split, end_split) != -1
+            ]
+        )
+        stats_lines.append(
+            f"Number of Completed Splits (User & Opponent): {completed_both}"
+        )
+
+        if completed_both > 0:
+            user_wins = len(
+                [
+                    m
+                    for m in filtered_matches
+                    if m.user_split_time(start_split, end_split) != -1
+                    and m.opponent_split_time(start_split, end_split) != -1
+                    and m.user_split_time(start_split, end_split)
+                    < m.opponent_split_time(start_split, end_split)
+                ]
+            )
+            winrate = user_wins / completed_both * 100
+            stats_lines.append(
+                f"User Winrate: {user_wins}/{completed_both} ({winrate:.1f}%)"
+            )
+            avg_diff = np.mean(
+                [
+                    m.user_split_time(start_split, end_split)
+                    - m.opponent_split_time(start_split, end_split)
+                    for m in filtered_matches
+                    if m.user_split_time(start_split, end_split) != -1
+                    and m.opponent_split_time(start_split, end_split) != -1
+                ]
+            )
+            status = "Ahead" if avg_diff < 0 else "Behind"
+            stats_lines.append(
+                f"Average Difference: {format_time(abs(avg_diff))} {status}"
+            )
+
+        stats_lines.append("\n")
+
+        self.stats_text.config(state=tk.NORMAL)
+        self.stats_text.delete("1.0", tk.END)
+        self.stats_text.insert(tk.END, "\n".join(stats_lines))
+        self.stats_text.config(state=tk.DISABLED)
+
+
+# Launch the UI
+if __name__ == "__main__":
+    app = StatsUI(matches, MAJOR_SPLITS)
+    app.mainloop()
