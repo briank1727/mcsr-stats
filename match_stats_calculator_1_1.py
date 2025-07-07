@@ -23,7 +23,11 @@ for item in files:
 
 def format_time(milliseconds):
     try:
-        return f"{"-" if milliseconds < 0 else ""}{int(abs(milliseconds) / 1000 // 60)}:{round(abs(milliseconds) / 1000 % 60):02d}"
+        total_seconds = int(abs(milliseconds) // 1000)
+        minutes = total_seconds // 60
+        seconds = total_seconds % 60
+        sign = "-" if milliseconds < 0 else ""
+        return f"{sign}{minutes}:{seconds:02d}"
     except Exception:
         return "0:00"
 
