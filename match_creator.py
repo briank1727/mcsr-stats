@@ -6,7 +6,7 @@ import os
 matchIds = []
 
 res = requests.get(
-    f"https://mcsrranked.com/api/users/LazarBim/matches?type=2&count=100"
+    f"https://mcsrranked.com/api/users/Bimmy321/matches?type=2&count=100"
 )
 try:
     res = res.json()
